@@ -14,6 +14,13 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    fontFamily:{
+      new:['NewYorkSmallRegular'],
+      newl:['NewYorkExtraLargeRegular'],
+      sfmono:['SFMonoRegular'],
+      sfdisplayh:['SFProDisplay-Heavy'],
+      sfdisplayl:['SFProText-Light']
+    }
   },
   plugins: [],
 }
