@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HomeImage from '../../public/assests/homeImage.png'
+import HomeImage from '../../public/assests/homeimage.png'
 import Link from "next/link";
 import data from '../../public/blogData'
 export default function Blog() {
