@@ -19,17 +19,16 @@ export default function Blog() {
 
                 <div>
                   <div><div className="">
-                    <Image 
+                    <Image
                       src={post.image}
                       alt={post.title}
                       width={304} // adjust the width as needed
                       height={176} // adjust the height as needed
-                      className="mr-4 text-center md:mx-[250px]" 
+                      className="mr-4 text-center md:mx-[250px]"
                     />
-                    <ul><li className="text-black font-sfdisplayh text-xl font-medium leading-[150%] text-center">{post.title}</li>
+                    <ul><li className=" w-[304px] md:mx-[250px] text-black font-sfdisplayh text-xl font-medium leading-[150%] text-center">{post.title}</li>
                     </ul>  </div></div>
                 </div>
-
               </Link>
             </div>
           ))}
