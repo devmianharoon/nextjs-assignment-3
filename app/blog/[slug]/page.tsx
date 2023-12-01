@@ -31,7 +31,7 @@ export default function Blogs() {
                 <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br /> Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. </p>
                 <Image src={Reactangel} alt="Reactangel"></Image>
                 <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula.
-                <br /> <br /> In eu dui molestie, molestie lectus eu, semper lectus. Proin at justo lacinia, auctor nisl et, consequat ante. Donec sit amet nisi arcu. Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. Nulla non volutpat leo.</p>
+                    <br /> <br /> In eu dui molestie, molestie lectus eu, semper lectus. Proin at justo lacinia, auctor nisl et, consequat ante. Donec sit amet nisi arcu. Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. Nulla non volutpat leo.</p>
                 <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Thanks for reading, <br />Mika</p>
                 <div className="flex justify-around">
                     <div className="flex  gap-2">
