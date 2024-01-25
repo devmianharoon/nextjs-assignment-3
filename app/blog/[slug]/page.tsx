@@ -4,14 +4,46 @@ import auther from '../../../public/assests/auther.png'
 import Twiter from '../../../public/assests/vector.svg'
 import fb from '../../../public/assests/facebook1.svg'
 import Reactangel from '../../../public/assests/Rectangle8.png'
+import client from "./../../lib/contentfulClient";
 
-export default function Blogs() {
+const fetchBlogData = async () => {
+    let blogData = await client.getEntries({ content_type: 'blog' })
+    const data = blogData.items.map((item: any) => {
+        return {
+            image: item.fields.image.fields.file.url,
+            title: item.fields.title,
+            description: item.fields.description,
+            slug: item.fields.slug
+        }
+    })
+    return data
+}
 
+export default async function Blogs({ params }: any) {
+
+    const data = await fetchBlogData();
+    const post: any = data.find((p: any) => (p.slug) === params.slug)
+    console.log(post);
+    console.log(params.slug);
     return (
         <>
             <HomeComp />
+
             <div className="lg:mx-[245px]">
+                <h1 className="text-center text-balack font-sfdisplayh font-bold text-3xl laeading-[160%] mt-14 mb-6">
+                    {post.title}
+                </h1>
+                <Image
+                      src={`https://${post.image}`}
+                      alt={post.title}
+                      width={604} 
+                      height={376} 
+                    />
+                <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">
+                    {post.description}
+                </p>
                 <div className=" flex justify-between">
+
                     <div className="flex gap-4">
                         <div >
                             <Image src={auther} alt="auther"></Image>
@@ -26,12 +58,10 @@ export default function Blogs() {
                         <Image src={Twiter} alt="twiterLogo"></Image>
                     </div>
                 </div>
-                <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula. In eu dui molestie, molestie lectus eu, semper lectus. </p>
-                <h1 className="text-balack font-sfdisplayh font-bold text-3xl laeading-[160%] mt-14 mb-6">Next on the pipeline</h1>
-                <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br /> Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. </p>
-                <Image src={Reactangel} alt="Reactangel"></Image>
-                <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula.
-                    <br /> <br /> In eu dui molestie, molestie lectus eu, semper lectus. Proin at justo lacinia, auctor nisl et, consequat ante. Donec sit amet nisi arcu. Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. Nulla non volutpat leo.</p>
+
+
+
+                {/* <Image src={Reactangel} alt="Reactangel"></Image> */}
                 <p className="font-new text-black font-normal text-xl  leading-[170%] my-14">Thanks for reading, <br />Mika</p>
                 <div className="flex justify-around">
                     <div className="flex  gap-2">

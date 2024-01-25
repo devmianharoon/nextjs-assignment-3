@@ -1,7 +1,27 @@
 import Image from "next/image";
 import HomeImage from '../../public/assests/homeimage.png'
 import Link from "next/link";
-export default function Blog() {
+import client from "./../lib/contentfulClient";
+
+
+const fetchBlogData = async () => {
+  let blogData = await client.getEntries({ content_type: 'blog' })
+  // console.log('bolg Data ', blogData.items[0].fields.title);
+  const data = blogData.items.map((item: any) => {
+    return {
+      image: item.fields.image.fields.file.url,
+      title: item.fields.title,
+      description: item.fields.description,
+      slug:item.fields.slug
+    }
+  })
+  return data
+}
+
+export default async function Blog() {
+  const data = await fetchBlogData()
+  console.log(data);
+
   return (
     <>
       <div className="lg:mx-[245px]">
@@ -11,25 +31,23 @@ export default function Blog() {
         <hr className="border-[2px] border-black md:w-[640px] md:mx-[100px]" />
         <h1 className="text-black text-center font-newl font-bold text-3xl sm:text-5xl mt-14 mb-7 sm:mt-16 sm:mb-10">All articles</h1>
         {/* Blog Post Starts Here */}
-        <div className="flex">
-          {/* {data.map((post) => (
+
+        <div className="grid grid-cols-2">
+          {data.map((post: any) => (
             <div key={post.id} className="mb-6">
               <Link href={`/blog/${post.slug}`}>
-                <div>
-                  <div><div className="">
+                  <div className="">
                     <Image
-                      src={post.image}
+                      src={`https://${post.image}`}
                       alt={post.title}
-                      width={304} // adjust the width as needed
-                      height={176} // adjust the height as needed
-                      className="mr-4 text-center md:mx-[250px]"
+                      width={404} 
+                      height={240} 
                     />
-                    <ul><li className=" w-[304px] md:mx-[250px] text-black font-sfdisplayh text-xl font-medium leading-[150%] text-center">{post.title}</li>
-                    </ul>  </div></div>
-                </div>
+                      <h1 className="text-center  text-black font-sfdisplayh text-xl font-medium leading-[150%] ">{post.title}</h1>
+                  </div>
               </Link>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     </>
