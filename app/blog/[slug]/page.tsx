@@ -2,8 +2,8 @@ import HomeComp from "../../(componant)/homeComp/pag";
 import Image from "next/image";
 import auther from '../../../public/assests/auther.png'
 import Twiter from '../../../public/assests/vector.svg'
-import fb from '../../../public/assests/facebook 1.svg'
-import Reactangel from '../../../public/assests/Rectangle 8.png'
+import fb from '../../../public/assests/facebook1.svg'
+import Reactangel from '../../../public/assests/Rectangle8.png'
 
 export default function Blogs() {
 

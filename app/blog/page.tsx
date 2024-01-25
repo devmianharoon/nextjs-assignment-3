@@ -1,7 +1,6 @@
 import Image from "next/image";
 import HomeImage from '../../public/assests/homeimage.png'
 import Link from "next/link";
-import data from '../../public/blogData'
 export default function Blog() {
   return (
     <>
@@ -12,11 +11,10 @@ export default function Blog() {
         <hr className="border-[2px] border-black md:w-[640px] md:mx-[100px]" />
         <h1 className="text-black text-center font-newl font-bold text-3xl sm:text-5xl mt-14 mb-7 sm:mt-16 sm:mb-10">All articles</h1>
         {/* Blog Post Starts Here */}
-        <div>
-          {data.map((post) => (
+        <div className="flex">
+          {/* {data.map((post) => (
             <div key={post.id} className="mb-6">
               <Link href={`/blog/${post.slug}`}>
-
                 <div>
                   <div><div className="">
                     <Image
@@ -31,9 +29,8 @@ export default function Blog() {
                 </div>
               </Link>
             </div>
-          ))}
+          ))} */}
         </div>
-
       </div>
     </>
   )
